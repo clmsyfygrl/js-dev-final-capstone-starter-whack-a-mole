@@ -2,8 +2,11 @@ const holes = document.querySelectorAll('.hole');
 const moles = document.querySelectorAll('.mole');
 const startButton = document.querySelector('#start');
 // TODO: Add the missing query selectors:
-const score = document.querySelectorAll('.score'); // Use querySelector() to get the score element
-const timerDisplay = document.querySelectorAll('.timer'); // use querySelector() to get the timer element.
+// Use querySelector() to get the score element
+const score = document.querySelectorAll('#score'); 
+// use querySelector() to get the timer element.
+const timerDisplay = document.querySelectorAll('#timer'); 
+
 
 let time = 0;
 let timer;
@@ -11,21 +14,17 @@ let lastHole = 0;
 let points = 0;
 let difficulty = "hard";
 
-/**
- * Generates a random integer within a range.
+/* Generates a random integer within a range.
  *
  * The function takes two values as parameters that limits the range 
  * of the number to be generated. For example, calling randomInteger(0,10)
  * will return a random integer between 0 and 10. Calling randomInteger(10,200)
- * will return a random integer between 10 and 200.
- *
- */
+ * will return a random integer between 10 and 200. */
 function randomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-/**
- * Sets the time delay given a difficulty parameter.
+/* Sets the time delay given a difficulty parameter.
  *
  * The function takes a `difficulty` parameter that can have three values: `easy`
  * `normal` or `hard`. If difficulty is "easy" then the function returns a time delay
@@ -36,9 +35,7 @@ function randomInteger(min, max) {
  * Example: 
  * setDelay("easy") //> returns 1500
  * setDelay("normal") //> returns 1000
- * setDelay("hard") //> returns 856 (returns a random number between 600 and 1200).
- *
- */
+ * setDelay("hard") //> returns 856 (returns a random number between 600 and 1200). */
 function setDelay(difficulty) {
   // TODO: Write your code here.
   if (difficulty === "easy") {
@@ -50,8 +47,7 @@ function setDelay(difficulty) {
   }
 }
 
-/**
- * Chooses a random hole from a list of holes.
+/* Chooses a random hole from a list of holes.
  *
  * This function should select a random Hole from the list of holes.
  * 1. generate a random integer from 0 to 8 and assign it to an index variable
@@ -78,9 +74,7 @@ function chooseHole(holes) {
   return hole;
 }
 
-/**
-*
-* Calls the showUp function if time > 0 and stops the game if time = 0.
+/* Calls the showUp function if time > 0 and stops the game if time = 0.
 *
 * The purpose of this function is simply to determine if the game should
 * continue or stop. The game continues if there is still time `if(time > 0)`.
@@ -126,12 +120,7 @@ function showUp() {
   return showAndHide(hole, delay);
 }
 
-/*
-* The purpose of this function is to show and hide the mole given
-* a delay time and the hole where the mole is hidden. The function calls
-* `toggleVisibility` to show or hide the mole. The function should return
-* the timeoutID
-*/
+/* The purpose of this function is to show and hide the mole given a delay time and the hole where the mole is hidden. The function calls `toggleVisibility` to show or hide the mole. The function should return the timeoutID. */
 function showAndHide(hole, delay){
   // TODO: call the toggleVisibility function so that it adds the 'show' class.
   toggleVisibility(hole)
@@ -143,10 +132,7 @@ function showAndHide(hole, delay){
   return timeoutID;
 }
 
-/*
-* Adds or removes the 'show' class that is defined in styles.css to 
-* a given hole. It returns the hole.
-*/
+/* Adds or removes the 'show' class that is defined in styles.css to a given hole. It returns the hole. */
 function toggleVisibility(hole){
   // TODO: add hole.classList.toggle so that it adds or removes the 'show' class.
   hole.classList.toggle("show")
@@ -191,7 +177,7 @@ function updateTimer() {
   return time;
 }
 
-/* Starts the timer using setInterval. For each 1000ms (1 second) the updateTimer function get called. This function is already implemented. */
+/* Starts the timer using setInterval. For each 1000ms (1 second) the updateTimer function gets called. This function is already implemented. */
 function startTimer() {
   // TODO: Write your code here
   timer = setInterval(updateTimer, 1000);
