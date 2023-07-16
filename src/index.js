@@ -113,14 +113,12 @@ function gameOver() {
   }
 }
 
-/**
-*
+/*
 * Calls the showAndHide() function with a specific delay and a hole.
 *
 * This function simply calls the `showAndHide` function with a specific
 * delay and hole. The function needs to call `setDelay()` and `chooseHole()`
 * to call `showAndHide(hole, delay)`.
-*
 */
 function showUp() {
   let delay = setDelay(); // TODO: Update so that it uses setDelay()
@@ -128,13 +126,11 @@ function showUp() {
   return showAndHide(hole, delay);
 }
 
-/**
-*
+/*
 * The purpose of this function is to show and hide the mole given
 * a delay time and the hole where the mole is hidden. The function calls
 * `toggleVisibility` to show or hide the mole. The function should return
 * the timeoutID
-*
 */
 function showAndHide(hole, delay){
   // TODO: call the toggleVisibility function so that it adds the 'show' class.
@@ -147,11 +143,9 @@ function showAndHide(hole, delay){
   return timeoutID;
 }
 
-/**
-*
+/*
 * Adds or removes the 'show' class that is defined in styles.css to 
 * a given hole. It returns the hole.
-*
 */
 function toggleVisibility(hole){
   // TODO: add hole.classList.toggle so that it adds or removes the 'show' class.
@@ -159,15 +153,13 @@ function toggleVisibility(hole){
   return hole;
 }
 
-/**
-*
+/*
 * This function increments the points global variable and updates the scoreboard.
 * Use the `points` global variable that is already defined and increment it by 1.
 * After the `points` variable is incremented proceed by updating the scoreboard
 * that you defined in the `index.html` file. To update the scoreboard you can use 
 * `score.textContent = points;`. Use the comments in the function as a guide 
 * for your implementation:
-*
 */
 function updateScore() {
   // TODO: Write your code here
@@ -180,13 +172,7 @@ function updateScore() {
   return points;
 }
 
-/**
-*
-* This function clears the score by setting `points = 0`. It also updates
-* the board using `score.textContent = points`. The function should return
-* the points.
-*
-*/
+/* This function clears the score by setting `points = 0`. It also updates the board using `score.textContent = points`. The function should return the points. */
 function clearScore() {
   // TODO: Write your code here
   points = 0;
@@ -194,11 +180,7 @@ function clearScore() {
   return points;
 }
 
-/**
-*
-* Updates the control board with the timer if time > 0
-*
-*/
+/* Updates the control board with the timer if time > 0 */
 function updateTimer() {
   // TODO: Write your code here.
   // hint: this code is provided to you in the instructions.
@@ -216,60 +198,37 @@ function startTimer() {
   return timer;
 }
 
-/**
-*
-* This is the event handler that gets called when a player
-* clicks on a mole. The setEventListeners should use this event
-* handler (e.g. mole.addEventListener('click', whack)) for each of
-* the moles.
-*
-*/
+/* This is the event handler that gets called when a player clicks on a mole. The setEventListeners should use this event handler (e.g. mole.addEventListener('click', whack)) for each of the moles. */
 function whack(event) {
   // TODO: Write your code here.
-  // call updateScore()
+  updateScore();
   return points;
 }
 
-/**
-*
-* Adds the 'click' event listeners to the moles. See the instructions
-* for an example on how to set event listeners using a for loop.
-*/
+/* Adds the 'click' event listeners to the moles. See the instructions for an example on how to set event listeners using a for loop. */
 function setEventListeners(){
   // TODO: Write your code here
-
+  // forEach mole add the whack event handler when a player clicks on the mole.
+  moles.forEach(
+    mole => mole.addEventListener('click', whack)
+  );
   return moles;
 }
 
-/**
-*
-* This function sets the duration of the game. The time limit, in seconds,
-* that a player has to click on the sprites.
-*
-*/
+/* This function sets the duration of the game. The time limit, in seconds, that a player has to click on the sprites. */
 function setDuration(duration) {
   time = duration;
   return time;
 }
 
-/**
-*
-* This function is called when the game is stopped. It clears the
-* timer using clearInterval. Returns "game stopped".
-*
-*/
+/* This function is called when the game is stopped. It clears the timer using clearInterval. Returns "game stopped". */
 function stopGame(){
   // stopAudio(song);  //optional
   clearInterval(timer);
   return "game stopped";
 }
 
-/**
-*
-* This is the function that starts the game when the `startButton`
-* is clicked.
-*
-*/
+/* This is the function that starts the game when the `startButton` is clicked. */
 function startGame(){
   setDuration(10);
   showUp();
