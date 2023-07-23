@@ -3,9 +3,9 @@ const moles = document.querySelectorAll('.mole');
 const startButton = document.querySelector('#start');
 // TODO: Add the missing query selectors:
 // Use querySelector() to get the score element
-const score = document.querySelectorAll('#score'); 
-// use querySelector() to get the timer element.
-const timerDisplay = document.querySelectorAll('#timer'); 
+const score = document.querySelector('#score'); 
+// use querySelector() to get the timer element. 
+const timerDisplay = document.querySelector('#timer'); 
 
 
 let time = 0;
@@ -116,7 +116,7 @@ function gameOver() {
 */
 function showUp() {
   let delay = setDelay(); // TODO: Update so that it uses setDelay()
-  const hole = chooseHole(holes);  // TODO: Update so that it use chooseHole()
+  const hole = chooseHole(holes);  // TODO: Update so that it uses chooseHole()
   return showAndHide(hole, delay);
 }
 
