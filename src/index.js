@@ -181,6 +181,7 @@ function startTimer() {
 The setEventListeners should use this event handler (e.g. mole.addEventListener('click', whack)) for each of the moles. */
 function whack(event) {
   // TODO: Write your code here.
+  setEventListeners();
   updateScore();
   return points;
 }
@@ -208,6 +209,7 @@ function stopGame() {
 
 /* This is the function that starts the game when the `startButton` is clicked. */
 function startGame() {
+  setEventListeners();
   startTimer();
   setDuration(10);
   showUp();
