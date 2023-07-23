@@ -11,7 +11,7 @@ let time = 0;
 let timer;
 let lastHole = 0;
 let points = 0;
-let difficulty = "hard";
+let difficulty = "normal";
 
 /* Generates a random integer within a range.
  * The function takes two values as parameters that limits the range
@@ -212,6 +212,7 @@ function startGame() {
   setEventListeners();
   startTimer();
   setDuration(10);
+  clearScore();
   showUp();
   return "game started";
 }
